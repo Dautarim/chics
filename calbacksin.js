@@ -1,8 +1,8 @@
 //Call back são funções que são chamadas por meio de argumento, ou ele entra na função como argumento
 
-setInterval(function scrol(){
-    window.scrollY()
-},1000)
+// setInterval(function scrol(){
+//     window.scrollY()
+// },1000)
 
 let divlist = document.querySelectorAll(".bldd")
 let wind = document.querySelector(".layer_foto")
@@ -19,3 +19,9 @@ divlist.forEach(e => {
 });
 
 wind.addEventListener('click', ()=> wind.classList.toggle("ative"))
+
+// const arr = ["vava","fjdjdj","bsajddsjsn","sndsdsnds","amdnskjdns"]
+
+// const arf = arr.filter((it) => it.includes("a"))
+
+// console.log(arf)
