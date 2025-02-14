@@ -10,7 +10,16 @@ let windimg = document.querySelector("#imgsel")
 
 let conntainer = document.querySelector(".container")
 
-const imagelist = [
+function embaralharArray(list){
+    for(let i = list.length - 1; i > 0; i--)
+    {
+        let j = Math.floor(Math.random() * ( i + 1 ))
+        if(list[i]!== list[j]){
+        [list[i], list[j]] = [list[j], list[i]] }
+    }
+    return list
+}
+const imagelista = [
 "https://cdni.pornpics.com/460/5/166/45506340/45506340_013_a837.jpg",
 "https://cdni.pornpics.com/460/7/542/95345049/95345049_019_17c9.jpg",
 "https://cdni.pornpics.com/460/7/542/71242289/71242289_015_4935.jpg",
@@ -406,33 +415,58 @@ const imagelist = [
 "https://cdni.pornpics.com/460/7/554/45571548/45571548_007_8b1d.jpg",
 "https://cdni.pornpics.com/460/7/561/28663920/28663920_251_deed.jpg",
 "https://cdni.pornpics.com/460/7/577/68737163/68737163_003_35ba.jpg",
+"https://cdni.pornpics.com/460/7/360/12067319/12067319_008_bace.jpg",
+"https://cdni.pornpics.com/460/7/69/34490585/34490585_048_6149.jpg",
+"https://cdni.pornpics.com/460/7/581/59942937/59942937_079_159c.jpg",
+"https://cdni.pornpics.com/460/7/581/89750780/89750780_067_f02d.jpg",
+"https://cdni.pornpics.com/460/5/172/86508283/86508283_015_9140.jpg",
+"https://cdni.pornpics.com/460/1/221/92940612/92940612_006_9805.jpg",
+"https://cdni.pornpics.com/460/1/117/46866097/46866097_001_133e.jpg",
+"https://cdni.pornpics.com/460/5/195/12389984/12389984_016_9405.jpg",
+"https://cdni.pornpics.com/460/7/309/22599207/22599207_042_9cc7.jpg",
+"https://cdni.pornpics.com/460/7/517/13479973/13479973_001_953c.jpg",
+"https://cdni.pornpics.com/460/5/86/30880384/30880384_001_8f53.jpg",
+"https://cdni.pornpics.com/460/7/223/25930817/25930817_060_8f5c.jpg",
+"https://cdni.pornpics.com/460/7/364/68089711/68089711_006_21f6.jpg",
+"https://cdni.pornpics.com/460/7/491/80241373/80241373_021_71e2.jpg",
+"https://cdni.pornpics.com/460/5/195/70349988/70349988_009_7a43.jpg",
+"https://cdni.pornpics.com/460/7/35/54333574/54333574_006_0d72.jpg",
+"https://cdni.pornpics.com/460/7/491/80147893/80147893_035_cc36.jpg",
+"https://cdni.pornpics.com/460/7/91/98453306/98453306_264_49be.jpg",
+"https://cdni.pornpics.com/460/7/100/65799052/65799052_008_3ca8.jpg",
+"https://cdni.pornpics.com/460/5/146/13729113/13729113_002_001a.jpg",
+"https://cdni.pornpics.com/460/7/491/77429362/77429362_109_439f.jpg",
+"https://cdni.pornpics.com/460/7/54/13376068/13376068_072_61fb.jpg",
+"https://cdni.pornpics.com/460/1/74/66541392/66541392_015_0f82.jpg",
+"https://cdni.pornpics.com/460/7/120/68681349/68681349_071_b3fd.jpg",
+"https://cdni.pornpics.com/460/7/61/35226700/35226700_073_f688.jpg",
+"https://cdni.pornpics.com/460/5/187/88576725/88576725_001_9ce2.jpg",
+"https://cdni.pornpics.com/460/5/206/83521131/83521131_005_d4a7.jpg",
+"https://cdni.pornpics.com/460/1/167/20603232/20603232_010_bbc9.jpg",
+"https://cdni.pornpics.com/460/1/80/99920168/99920168_003_2357.jpg",
+"https://cdni.pornpics.com/460/7/580/95402593/95402593_053_e34d.jpg",
+"https://cdni.pornpics.com/460/5/119/69688607/69688607_003_fddd.jpg",
+"https://cdni.pornpics.com/460/5/219/24220297/24220297_007_1c66.jpg",
+"https://cdni.pornpics.com/460/7/229/85052107/85052107_003_75bd.jpg",
+"https://cdni.pornpics.com/460/7/240/99974662/99974662_001_9c9c.jpg",
+"https://cdni.pornpics.com/460/7/240/21960267/21960267_064_1d3c.jpg",
+"https://cdni.pornpics.com/460/5/131/98975681/98975681_013_4e69.jpg",
+"https://cdni.pornpics.com/460/5/186/30341871/30341871_015_91c7.jpg",
+"https://cdni.pornpics.com/460/1/62/71673068/71673068_002_c3e8.jpg",
+"https://cdni.pornpics.com/460/7/226/12909414/12909414_033_0824.jpg",
+"https://cdni.pornpics.com/460/7/288/36481738/36481738_046_59a2.jpg",
 
 
 ]
-// document.addEventListener("click",()=>{
-// const imgs = document.querySelectorAll(".rel-link .ll-loaded")
-// let formatado = ""
-// for(var idx = 10; idx < 30; idx++){
-//  formatado += `"${imgs[idx].src}",\n`
-// }
-// console.log(formatado)
-// navigator.clipboard.writeText(formatado)
-//   .then(() => console.log("Copiado!"))
-//   .catch(err => console.error("Erro ao copiar:", err));
-
-// })
-
-
-
 // FUNÇÃO DE ADIÇÃO DOS LINKS 
-imagelist.forEach( e => {
-    let num = imagelist.indexOf(e)
+let imagelist = embaralharArray(imagelista)
+for(let link of imagelist){
+    let num = imagelist.indexOf(link)
     conntainer.innerHTML += `
     <div class="bldd">
-            <img src="${e}" alt="${num}">
+            <img src="${link}" alt="${num}">
         </div>`
-
-})
+    }
 
 let divlist = document.querySelectorAll(".bldd")
 
@@ -450,6 +484,18 @@ wind.addEventListener('click', ()=> wind.classList.toggle("ative"))
 
 
 
+// document.addEventListener("click",()=>{
+// const imgs = document.querySelectorAll(".rel-link .ll-loaded")
+// let formatado = ""
+// for(var idx = 10; idx < 30; idx++){
+//  formatado += `"${imgs[idx].src}",\n`
+// }
+// console.log(formatado)
+// navigator.clipboard.writeText(formatado)
+//   .then(() => console.log("Copiado!"))
+//   .catch(err => console.error("Erro ao copiar:", err));
+
+// })
 
 // const arr = ["vava","fjdjdj","bsajddsjsn","sndsdsnds","amdnskjdns"]
 
